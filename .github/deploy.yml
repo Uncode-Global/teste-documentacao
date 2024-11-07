@@ -1,0 +1,33 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Ou a branch que você usa
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'  # Defina a versão do Node.js que você está utilizando
+    
+    - name: Install dependencies
+      run: |
+        npm install
+
+    - name: Build site with Eleventy
+      run: |
+        npm run build  # Comando para compilar seu site (verifique se você tem esse comando no seu package.json)
+    
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@v4.1.0
+      with:
+        branch: gh-pages  # A branch onde o conteúdo compilado será colocado
+        folder: _site    # Pasta onde o Eleventy gera o conteúdo compilado
