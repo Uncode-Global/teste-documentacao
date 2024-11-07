@@ -3,11 +3,12 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main
+      - main  # Ação será disparada quando houver um push para a branch 'main'
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
@@ -18,14 +19,14 @@ jobs:
         node-version: '20'
 
     - name: Install dependencies
-      run: npm install
+      run: npm install  # Dependendo do seu projeto, altere esse comando
 
     - name: Build site with Eleventy
-      run: npm run build  # Altere esse comando se for diferente para o seu projeto
+      run: npm run build  # Certifique-se de que esse comando esteja correto
 
     - name: Deploy to GitHub Pages
       uses: jamesives/github-pages-deploy-action@v4.6.8
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        folder: '_site'  # Diretório gerado pelo Eleventy
-        branch: 'gh-pages'  # Pode ser 'main' ou outro, dependendo da sua configuração de GitHub Pages
+        token: ${{ secrets.GITHUB_TOKEN }}  # Usar o token secreto para autenticação
+        folder: '_site'  # O diretório de saída do Eleventy
+        branch: 'main'  # Deploy para a branch 'main'
