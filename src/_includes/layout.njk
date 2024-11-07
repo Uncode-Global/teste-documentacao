@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+<link rel="stylesheet" href="/assets/styles.css">
+
+
+</head>
+<body class="{{ bodyClass | default('') }}">
+
+    <div class="page-wrapper">
+    
+        <header>
+            {% include "header.njk" %} 
+        </header>
+       
+        <main>
+            {{ content | safe }}
+        </main>
+    </div>
+
+  <script src="/assets/scripts.js"></script>
+
+</body>
+</html>

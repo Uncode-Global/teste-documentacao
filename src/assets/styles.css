@@ -1,0 +1,210 @@
+/* Resetando todos os estilos para garantir um comportamento consistente */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Removendo a formatação de links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Removendo as estilizações padrão de listas */
+ul, ol {
+  list-style: none;
+}
+
+/* Removendo as margens e paddings das tabelas */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Removendo bordas em campos de formulários */
+input, button, textarea, select {
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Removendo o estilo dos botões em navegadores */
+button {
+  background: none;
+  cursor: pointer;
+}
+
+/* Definindo um estilo básico de fontes */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+}
+
+/* Asegurando que o HTML e o Body tenham o tamanho 100% */
+html, body {
+  height: 100%;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+/* --variaveis */
+
+body{
+    font-family: "Inter", sans-serif;
+}
+
+
+.page-wrapper{
+    
+    display: flex;
+    align-items: center;
+}
+
+header {
+    position: relative;
+    min-width:320px;
+    max-width:320px;
+    background: #FBFAFD;
+    min-height:100vh;
+    padding: 0 10px;
+    border-right: 1px solid #E7E6E9;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.context-logo {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #FFFFFF;
+}
+.context-logo span {
+    position: relative;
+    top: 5px;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    /* justify-content: center; */
+    gap: 5px;
+    margin-bottom: 40px;
+    margin-top: 10px;
+}
+
+main{
+    padding: 50px 60px ;
+    min-height: 100vh;
+}
+
+header .logo h1{
+    font-size: 16px;
+    font-weight: 400;
+}
+
+
+header nav ul li a {
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    justify-content: space-between;
+}
+
+header nav ul li{
+    padding: 12px 24px;
+    background: #Fff;
+    margin: 4px 0;
+
+}
+
+header nav ul li a  span {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.context-menu{
+    margin: 30px 0;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 0 16px;
+}
+
+
+header nav ul li:first-child {
+    margin-bottom: 14px;
+}
+
+
+ul.conteudo-submenu li {
+    margin: 0;
+    margin-bottom: 16px;
+    padding:0 ;
+}
+ul.conteudo-submenu{
+    display: none;
+    margin-bottom: 0 !important;
+}
+ul.conteudo-submenu li:first-child{
+    margin-bottom: 0;
+}
+
+header nav ul li.active ul.conteudo-submenu{
+    display: flex;
+    flex-direction: column;
+    padding-left: 40px;
+    margin: 16px 0;
+}
+
+header nav ul li.active {
+    background: #0A727314;
+
+}
+
+header nav ul li.title.active a > img {
+    transform: rotate(180deg);
+}
+
+header nav ul li.active ul li {
+    background: transparent ;
+    cursor: pointer;
+}
+
+header nav ul li.active a {
+    color: #0A7273;
+}
+
+h2.submenu-toggle {
+    font-size: 14px;
+    font-weight: 500;
+    color: #0A7273;
+}
+
+ul.submenu-list li {
+    margin: 10px 0;
+    font-size: 14px;
+    font-weight: 400;
+    padding-left: 15px;
+    color: #0A7273;
+}
+
+h2.submenu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header nav ul li.active ul.conteudo-submenu > li {
+    margin-bottom: 16px;
+}

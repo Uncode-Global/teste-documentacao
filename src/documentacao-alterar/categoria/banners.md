@@ -1,0 +1,4 @@
+- [Banner Bloco 1](https://www.11ty.dev/)
+- [Banner Bloco 2](https://github.com/11ty/eleventy)
+- [Banner Bloco 3](https://www.markdownguide.org/)
+- [Banner Bloco 4](https://www.uncodetech.com/)
