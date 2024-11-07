@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main
+      - main  # A branch principal do repositório
 
 jobs:
   deploy:
@@ -16,7 +16,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '20'
 
       - name: Install dependencies
         run: npm install
@@ -27,6 +27,6 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: jamesives/github-pages-deploy-action@v4.6.8
         with:
-          branch: gh-pages  # branch de deploy
-          folder: _site  # diretório onde o site é gerado
-          token: ${{ secrets.GITHUB_TOKEN }}  # token de autenticação
+          branch: gh-pages   # Certifique-se de que esta é a branch correta para o deploy
+          folder: _site      # Diretório onde os arquivos estão localizados
+          token: ${{ secrets.GITHUB_TOKEN }}  # O token de autenticação
