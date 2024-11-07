@@ -3,28 +3,29 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # ou a branch que você deseja monitorar
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      # Checkout do código
-      - name: Checkout repository
-        uses: actions/checkout@v3
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
-      # Instalar o Eleventy
-      - name: Install dependencies
-        run: npm ci
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
 
-      # Build do Eleventy
-      - name: Build the site
-        run: npm run build
+    - name: Install dependencies
+      run: npm install
 
-      # Deploy para o GitHub Pages
-      - name: Deploy to GitHub Pages
-        uses: jamesives/github-pages-deploy-action@v4.6.8  # Versão atualizada
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site  # Diretório de saída do Eleventy
-          publish_branch: gh-pages  # Branch de destino
+    - name: Build site with Eleventy
+      run: npm run build  # Altere esse comando se for diferente para o seu projeto
+
+    - name: Deploy to GitHub Pages
+      uses: jamesives/github-pages-deploy-action@v4.6.8
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        folder: '_site'  # Diretório gerado pelo Eleventy
+        branch: 'gh-pages'  # Pode ser 'main' ou outro, dependendo da sua configuração de GitHub Pages
